@@ -12,9 +12,8 @@ dict1 = {i: f"item {i}" for i in range(1, 10)
          }
 dict2 = {value: key for key, value in dict1.items()}
 print(dict1, "\n", dict2)
-# -
 
-# # generator comprehension
+# generator comprehension
 
 evens = (i for i in range(10) if
          i % 2 == 0)
