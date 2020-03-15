@@ -68,24 +68,3 @@ text = ""
 # print("Date:", '12-02-2020', end = "  ")
 # print("In_time:", '12:56', end = " ")
 # print("Out_time:", '09:00', end = " ")
-
-def selenium_browser_chrome(context):
-
-    # start the browser
-    chrome_options = webdriver.ChromeOptions()
-    # chrome_options.add_argument("--headless")
-    # chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_argument("--disable-dev-shm-usage")
-    # chrome_options.add_argument("--disable-gpu")
-    # chrome_options.add_argument("--window-size=1920,1080")
-
-    capabilities = DesiredCapabilities.CHROME.copy()
-    capabilities['acceptSslCerts'] = True
-    capabilities['acceptInsecureCerts'] = True
-
-    context.browser = webdriver.Chrome(chrome_options=chrome_options,
-                                       desired_capabilities=capabilities)
-    yield context.browser
-
-    # clean up
-    context.browser.quit()
