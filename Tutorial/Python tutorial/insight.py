@@ -1,4 +1,5 @@
 import csv
+import os
 import time
 
 from selenium import webdriver
@@ -7,9 +8,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+path = r"F:/Python/Tutorial"
+
 
 def csv_writer(Date, in_time, out_time):
-    with open('working.csv', mode = 'a', newline = '') as file:
+    with open(os.path.join(path, 'working.csv'), mode = 'a', newline = '') as file:
         writer = csv.writer(file)
         writer.writerow([Date, in_time, out_time])
 
@@ -55,7 +58,7 @@ action_chain = ActionChains(driver)
 menu = driver.find_element_by_xpath('//a[@class = "un-menu"]').click()
 leave_attendance = driver.find_element_by_xpath('//a[contains(text(),"Leave & Attendance")]').click()
 refresh_page()
-no_of_date = [9, 10, 11]
+no_of_date = [9, 11, 12, 13]
 overwrite_csv()
 try:
     for date in no_of_date:
