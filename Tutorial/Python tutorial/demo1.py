@@ -13,8 +13,8 @@ for w in sorted(s2):
 assert output ,'ABDKKP134569'
 print(output)
 
-input = a4b3c2
-output = aaaabbbcc
+# input = a4b3c2
+# output = aaaabbbcc
 output = ''
 string = 'a2k4b3c2'
 
@@ -29,27 +29,25 @@ print(output, output)
 # color_bars = Fore.GREEN
 # for i in trange(100, desc="Loading...", bar_format ="{l_bar}%s{bar}%s{r_bar}" %(color_bars)):
 #     time.sleep(0.3)
-from selenium.webdriver import DesiredCapabilities
-from selenium import webdriver
 text = ""
+# import tqdm
 
+# for char in tqdm(["a", "b", "c", "d"]):
+#     time.sleep(0.25)
+#     text = text + char
+# print(text)
 
-for char in tqdm(["a", "b", "c", "d"]):
-    time.sleep(0.25)
-    text = text + char
-print(text)
+# pbar = tqdm(["a", "b", "c", "d"])
+# for char in pbar:
+#     time.sleep(0.25)
+#     pbar.set_description("Processing %s" % char)
 
-pbar = tqdm(["a", "b", "c", "d"])
-for char in pbar:
-    time.sleep(0.25)
-    pbar.set_description("Processing %s" % char)
-
-with tqdm(total = 100) as pbar:
-    for i in range(10):
-        print(str(i))
-        time.sleep(0.1)
-        pbar.update(10)
-
+# with tqdm(total = 100) as pbar:
+#     for i in range(10):
+#         print(str(i))
+#         time.sleep(0.1)
+#         pbar.update(10)
+import csv
 
 def csv_writer(f_name: str, l_name: str):
     with open('Test.csv', mode = 'w', newline = '') as file:
@@ -67,4 +65,5 @@ print("In_time:", '12:56', end = " ")
 print("Out_time:", '09:00')
 print("Date:", '12-02-2020', end = "  ")
 print("In_time:", '12:56', end = " ")
-print("Out_time:", '09:00', end = " ")
+print("Out_time:", '09:00', end = " \n")
+

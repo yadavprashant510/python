@@ -34,7 +34,13 @@
 # master_yoda('we are ready')
 
 
-def makes_twenty(n1,n2):
-    return print((n1 == 20) or (n2==20)) or (n1+n2)==0
+# def makes_twenty(n1,n2):
+#     return print((n1 == 20) or (n2==20)) or (n1+n2)==0
 
-makes_twenty(2,1)
+# makes_twenty(2,1)
+
+def sum(a, b):
+    return a+b
+
+
+print(sum(5, 2))
