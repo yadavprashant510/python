@@ -45,6 +45,14 @@ def refresh_page():
     return
 
 
+def check(x):
+    if x != "":
+        pass
+    else:
+        x = ''
+    return x
+
+
 options = webdriver.ChromeOptions()
 options._binary_location = "D:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 driver = webdriver.Chrome(options = options)
@@ -58,7 +66,7 @@ action_chain = ActionChains(driver)
 menu = driver.find_element_by_xpath('//a[@class = "un-menu"]').click()
 leave_attendance = driver.find_element_by_xpath('//a[contains(text(),"Leave & Attendance")]').click()
 refresh_page()
-no_of_date = [9, 11, 12, 13]
+no_of_date = [9]
 overwrite_csv()
 try:
     for date in no_of_date:
@@ -75,13 +83,15 @@ try:
         wait_time = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="GridView1"]\
                                                         /tbody/tr[2]/td[11]/div')))
         driver.execute_script("arguments[0].scrollIntoView();", wait_time)
-        # action_chain.drag_and_drop_by_offset(hbar,217,0).perform()
         In_time = driver.find_element_by_xpath('//*[@id="GridView1"]/tbody/tr[2]/td[11]/div').text
+        check(In_time)
         Out_time = driver.find_element_by_xpath('//*[@id="GridView1"]/tbody/tr[3]/td[11]').text
+        check(Out_time)
         D = driver.find_element_by_xpath('//tr[@class="GridviewScrollItem"]/td[10]/div').text
+        check(D)
         driver.execute_script("window.scrollBy(0,-200)")
-        csv_writer(D, In_time, Out_time)
         if (In_time != "") and (Out_time != ""):
+            csv_writer(D, In_time, Out_time)
             print(f"Date:{D}", end = "  ")
             print(f"In-Time = {In_time}", end = " ")
             print(f"Out-Time = {Out_time}", end = " ")
