@@ -42,9 +42,9 @@ def refresh_page():
     return
 
 
-driver = webdriver.FirefoxOptions()
-
-# driver = webdriver.Firefox()
+options = webdriver.ChromeOptions()
+options._binary_location = "D:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+driver = webdriver.Chrome(options = options)
 wait = WebDriverWait(driver, 10)
 url = driver.get("https://prashant.yadav:Eclerx@123@insight.eclerx.com")
 # url2 = driver.get("https://insight.eclerx.com")

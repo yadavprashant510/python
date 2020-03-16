@@ -6,6 +6,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 try:
     Options = webdriver.ChromeOptions()
     # fireFoxOptions.set_headless()
+    Options.binary_location = "D:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
     driver: WebDriver = webdriver.Chrome(options = Options)
     url = "https://insight.eclerx.com"
     driver.get(url)
